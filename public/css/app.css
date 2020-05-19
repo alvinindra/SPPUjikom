@@ -1,0 +1,5 @@
+@media (max-width: 480px) {
+    .nav-tabs .nav-link {
+        width: 100%;
+    }
+}

@@ -1,0 +1,14 @@
+APP_NAME=SPPUjikom
+APP_ENV=local
+APP_KEY=base64:NUwiQePzPw4jStOU6v2ilsJGSCHsz6LDcUtlgMZKHeY=
+APP_DEBUG=false
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=u6164942_db_sppujikom
+DB_USERNAME=u6164942_sppujikom
+DB_PASSWORD=sppujikom4321

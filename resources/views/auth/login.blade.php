@@ -13,6 +13,7 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
+	<link rel="manifest" href="{{ asset('manifest.json') }}">
 	<link rel="icon" href="{{ asset('favicon.ico')}} " type="image/x-icon" />
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico')}}" />
 	<!-- Generated: 2018-04-16 09:29:05 +0200 -->
@@ -25,6 +26,22 @@
 		requirejs.config({
 			baseUrl: '.'
 		});
+	</script>
+	<script>
+	// REGISTER SERVICE WORKER
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', function() {
+			navigator.serviceWorker.register('{{ asset('service-worker.js') }}')
+			.then(function() {
+				console.log('Pendaftaran ServiceWorker berhasil');
+			})
+			.catch(function(){
+				console.log('Pendaftaran ServiceWorker gagal');
+			});
+		})
+	} else {
+		console.log("ServiceWorker belum didukung browser ini.")
+	}    
 	</script>
 	<!-- Dashboard Core -->
 	<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" />

@@ -42,7 +42,7 @@ class SppController extends Controller
 
             $resultPerbulan = $request->nominal / 12;
             $spp = Spp::create([
-                'tahun'             => $request->tahun,
+                'tahun'             => $request->tahun + '/' + ($request->tahun + 1),
                 'nominal'           => $request->nominal,
                 'total_perbulan'    => $resultPerbulan,
                 'created_at'        => now(),
@@ -101,7 +101,7 @@ class SppController extends Controller
             $resultPerbulan = $request->nominal / 12;
             $sppUpdate = Spp::where('id_spp', $id)->update([
                 'nama_spp'          => $request->nama_spp,
-                'tahun'             => $request->tahun,
+                'tahun'             => $request->tahun + '/' + ($request->tahun + 1),
                 'nominal'           => $request->nominal,
                 'total_perbulan'    => $resultPerbulan,
                 'updated_at'        => now()

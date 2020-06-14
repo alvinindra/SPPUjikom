@@ -94,7 +94,7 @@ class SiswaController extends Controller
                 $pembayaran = Pembayaran::create([
                     'nisn'          => $request->nisn,
                     'bulan_dibayar' => $bulan[0][$i],
-                    'tahun_dibayar' => $spp->tahun,
+                    'tahun_dibayar' => $spp->tahun + '/' + ($spp->tahun + 1),
                     'id_spp'        => $request->id_spp,
                     'jumlah_bayar'  => $spp->total_perbulan,
                     'keterangan'    => 'Belum Lunas'

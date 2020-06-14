@@ -13,6 +13,9 @@
 
 Auth::routes();
 
+//Root
+Route::get('/privacy', 'Controller@privacy')->name('privacy.page');
+
 Route::middleware(['auth:web'])->group(function () {
 
     //Home

@@ -19,6 +19,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico')}}" />
 	<!-- Generated: 2018-04-16 09:29:05 +0200 -->
 	<title>SPPUjikom | @yield('page-name')</title>
+	<link rel="manifest" href="{{ asset('manifest.json') }}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
@@ -27,6 +28,22 @@
 		requirejs.config({
 			baseUrl: '/'
 		});
+	</script>
+	<script>
+	// REGISTER SERVICE WORKER
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', function() {
+			navigator.serviceWorker.register('{{ asset('service-worker.js') }}')
+			.then(function() {
+				console.log('Pendaftaran ServiceWorker berhasil');
+			})
+			.catch(function(){
+				console.log('Pendaftaran ServiceWorker gagal');
+			});
+		})
+	} else {
+		console.log("ServiceWorker belum didukung browser ini.")
+	}    
 	</script>
 	<!-- Dashboard Core -->
 	<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" />

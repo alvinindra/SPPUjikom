@@ -5,40 +5,21 @@ if (workbox)
 else
     console.log(`Workbox gagal dimuat`);
 
-workbox.precaching.precacheAndRoute([{
-        url: '/css/app.css',
-        revision: '1'
-    },
-    {
-        url: '/css/dashboard.css',
-        revision: '1'
-    },
-    {
-        url: '/css/dashboard.rtl.css',
-        revision: '1'
-    },
-    {
-        url: '/css/tabler.css',
-        revision: '1'
-    },
-    {
-        url: '/css/tabler.rtl.css',
-        revision: '1'
-    },
-    {
-        url: '/css/daterangepicker.css',
-        revision: '1'
-    },
-    {
-        url: '/js/dashboard.js',
-        revision: '1'
-    },
-    {
-        url: '/js/core.js',
-        revision: '1'
-    },
-    {
-        url: '/js/require.min.js',
-        revision: '1'
-    },
-]);
+workbox.setConfig({
+    "debug": false
+});
+
+// Start controlling any existing clients as soon as it activates
+workbox.core.clientsClaim()
+
+// Skip over the SW waiting lifecycle stage
+workbox.core.skipWaiting()
+
+workbox.precaching.cleanupOutdatedCaches()
+
+workbox.routing.registerRoute(new RegExp('/'), new workbox.strategies.NetworkFirst({}), 'GET')
+
+workbox.routing.registerRoute(
+    new RegExp('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js'),
+    new workbox.strategies.CacheFirst({}), 'GET'
+)

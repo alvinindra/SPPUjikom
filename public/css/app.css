@@ -3,3 +3,7 @@
         width: 100%;
     }
 }
+
+#nprogress .bar {
+    background: #5eba00 !important;
+}

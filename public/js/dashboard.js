@@ -18,7 +18,6 @@ require.config({
         'vector-map': 'js/vendors/jquery-jvectormap-2.0.3.min',
         'vector-map-de': 'js/vendors/jquery-jvectormap-de-merc',
         'vector-map-world': 'js/vendors/jquery-jvectormap-world-mill',
-        'circle-progress': 'js/vendors/circle-progress.min',
         'datepicker': 'js/vendors/datepicker',
         'sweetalert': 'js/vendors/sweetalert.min',
         'select2': 'js/vendors/select2.min',

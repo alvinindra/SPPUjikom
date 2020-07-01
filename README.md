@@ -1,5 +1,5 @@
 # SPPUjikom
-My Project Ujikom about transaction SPP build with Laravel Framework
+My Project Ujikom about transaction SPP build with Laravel Framework + PWA
 
 ## Screenshot Project
 ### - Login
